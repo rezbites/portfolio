@@ -66,7 +66,7 @@ export default function MenuOverlay({
             </div>
 
             <nav className="flex-1 flex items-center">
-              <ul className="w-full divide-y divide-border/40">
+              <ul className="w-full space-y-3 md:space-y-5">
                 {items.map((item, i) => (
                   <motion.li
                     key={item.id}
@@ -77,20 +77,13 @@ export default function MenuOverlay({
                     <a
                       href={`#${item.id}`}
                       onClick={onClose}
-                      className="group flex w-full items-baseline gap-6 py-4 md:py-5 transition-colors duration-200 hover:bg-surface/30 px-2 -mx-2 rounded-lg"
+                      className="invert-hover inline-flex items-baseline gap-6 font-display font-semibold uppercase leading-none tracking-tight text-text"
+                      style={{ fontSize: "clamp(2.5rem, 9vw, 6.5rem)" }}
                     >
-                      <span className="w-7 shrink-0 font-mono text-xs text-text-mute transition-colors duration-200 group-hover:text-text-dim">
+                      <span className="font-mono" style={{ fontSize: "0.75rem", letterSpacing: "0.05em" }}>
                         {item.num}
                       </span>
-                      <span
-                        className="font-display font-semibold uppercase leading-none tracking-tight text-text transition-transform duration-300 group-hover:translate-x-2"
-                        style={{ fontSize: "clamp(2.5rem, 9vw, 6.5rem)" }}
-                      >
-                        {item.label}
-                      </span>
-                      <span className="ml-auto self-center font-mono text-lg text-text-mute opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
-                        →
-                      </span>
+                      {item.label}
                     </a>
                   </motion.li>
                 ))}
