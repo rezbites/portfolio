@@ -42,8 +42,8 @@ export default function CustomCursor() {
 
     let raf = 0;
     const tick = () => {
-      ring.current.x += (target.current.x - ring.current.x) * 0.22;
-      ring.current.y += (target.current.y - ring.current.y) * 0.22;
+      ring.current.x += (target.current.x - ring.current.x) * 0.42;
+      ring.current.y += (target.current.y - ring.current.y) * 0.42;
       if (ringRef.current) {
         ringRef.current.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0) translate(-50%, -50%)`;
       }

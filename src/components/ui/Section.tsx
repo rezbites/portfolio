@@ -12,14 +12,14 @@ type Props = {
 
 export default function Section({ id, label, title, description, children, className = "" }: Props) {
   return (
-    <section id={id} className={`relative scroll-mt-20 py-16 md:py-24 ${className}`}>
+    <section id={id} className={`relative scroll-mt-20 py-12 md:py-18 ${className}`}>
       <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-12 max-w-2xl"
+          className="mb-8 max-w-2xl"
         >
           <p className="section-label">{label}</p>
           <h2 className="section-title">{title}</h2>

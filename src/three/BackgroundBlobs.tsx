@@ -11,11 +11,12 @@ type Blob = {
   rotateSpeed: [number, number];
 };
 
-// Fewer blobs, lower geometry detail for much better performance
+// Four blobs for richer depth
 const BLOBS: Blob[] = [
   { position: [-5.0, 1.5, -2.5], scale: 3.2, distort: 0.45, speed: 0.8, rotateSpeed: [0.03, 0.04] },
   { position: [5.2, 2.2, -2.2], scale: 2.8, distort: 0.5, speed: 1.0, rotateSpeed: [-0.025, 0.03] },
   { position: [-3.8, -2.8, -2.0], scale: 2.4, distort: 0.4, speed: 1.1, rotateSpeed: [0.04, -0.03] },
+  { position: [4.0, -3.0, -3.2], scale: 2.2, distort: 0.38, speed: 0.7, rotateSpeed: [-0.03, -0.025] },
 ];
 
 function SingleBlob({ blob }: { blob: Blob }) {

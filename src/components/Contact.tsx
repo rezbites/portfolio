@@ -62,7 +62,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-20 bg-bg-deep py-16 md:py-24"
+      className="relative scroll-mt-20 bg-bg-deep py-12 md:py-18"
     >
       <div className="container-page">
         <motion.p

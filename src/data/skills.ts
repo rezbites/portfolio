@@ -39,19 +39,7 @@ export const skillClusters: SkillCluster[] = [
       "GitHub Actions",
       "Trivy",
       "Linux",
-    ],
-  },
-  {
-    title: "System Design",
-    blurb: "Patterns for building scalable, reliable systems.",
-    items: [
-      "Microservices",
-      "Load Balancing",
-      "Caching Strategies",
-      "Message Queues",
-      "API Gateway",
-      "Rate Limiting",
-      "Sidecar Architecture",
+      "System Design",
     ],
   },
   {
