@@ -17,7 +17,9 @@ export default function Nav() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled ? "py-3" : "py-5"
+          scrolled
+            ? "py-3 bg-bg/80 backdrop-blur-md border-b border-border/50"
+            : "py-5"
         }`}
       >
         <div className="container-page">
