@@ -66,25 +66,31 @@ export default function MenuOverlay({
             </div>
 
             <nav className="flex-1 flex items-center">
-              <ul className="w-full space-y-3 md:space-y-5">
+              <ul className="w-full divide-y divide-border/40">
                 {items.map((item, i) => (
                   <motion.li
                     key={item.id}
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.45, delay: 0.08 + i * 0.06 }}
-                    className="flex items-baseline gap-6"
                   >
-                    <span className="font-mono text-xs text-text-mute">
-                      {item.num}
-                    </span>
                     <a
                       href={`#${item.id}`}
                       onClick={onClose}
-                      className="invert-hover font-display font-semibold uppercase leading-none tracking-tight text-text"
-                      style={{ fontSize: "clamp(2.5rem, 9vw, 6.5rem)" }}
+                      className="group flex w-full items-baseline gap-6 py-4 md:py-5 transition-colors duration-200 hover:bg-surface/30 px-2 -mx-2 rounded-lg"
                     >
-                      {item.label}
+                      <span className="w-7 shrink-0 font-mono text-xs text-text-mute transition-colors duration-200 group-hover:text-text-dim">
+                        {item.num}
+                      </span>
+                      <span
+                        className="font-display font-semibold uppercase leading-none tracking-tight text-text transition-transform duration-300 group-hover:translate-x-2"
+                        style={{ fontSize: "clamp(2.5rem, 9vw, 6.5rem)" }}
+                      >
+                        {item.label}
+                      </span>
+                      <span className="ml-auto self-center font-mono text-lg text-text-mute opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+                        →
+                      </span>
                     </a>
                   </motion.li>
                 ))}
