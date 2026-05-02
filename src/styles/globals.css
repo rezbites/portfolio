@@ -83,8 +83,7 @@
   .cursor-ring.cursor-hovering {
     width: 3rem;
     height: 3rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-color: white;
+    background: rgba(255, 255, 255, 0.12);
   }
   .cursor-ring.cursor-pressed {
     transform: scale(0.9);

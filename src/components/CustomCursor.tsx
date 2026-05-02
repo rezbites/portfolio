@@ -75,14 +75,22 @@ export default function CustomCursor() {
       <div
         ref={ringRef}
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[200] h-9 w-9 rounded-full border-2 border-white cursor-ring"
-        style={{ willChange: "transform", mixBlendMode: "difference" }}
+        className="pointer-events-none fixed left-0 top-0 z-[200] h-9 w-9 rounded-full cursor-ring"
+        style={{
+          willChange: "transform",
+          border: "1.5px solid rgba(255,255,255,0.9)",
+          boxShadow: "0 0 0 1px rgba(0,0,0,0.55)",
+        }}
       />
       <div
         ref={dotRef}
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[200] h-2 w-2 rounded-full bg-white"
-        style={{ willChange: "transform", mixBlendMode: "difference" }}
+        className="pointer-events-none fixed left-0 top-0 z-[200] h-2 w-2 rounded-full"
+        style={{
+          willChange: "transform",
+          background: "rgba(255,255,255,0.95)",
+          boxShadow: "0 0 0 1px rgba(0,0,0,0.5)",
+        }}
       />
     </>
   );
