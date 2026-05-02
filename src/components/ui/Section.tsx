@@ -12,7 +12,7 @@ type Props = {
 
 export default function Section({ id, label, title, description, children, className = "" }: Props) {
   return (
-    <section id={id} className={`relative scroll-mt-20 py-24 md:py-32 ${className}`}>
+    <section id={id} className={`relative scroll-mt-20 py-16 md:py-24 ${className}`}>
       <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

@@ -70,6 +70,26 @@
     @apply mx-auto w-full max-w-6xl px-6 md:px-10;
   }
 
+  html.custom-cursor-active,
+  html.custom-cursor-active body,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+
+  /* Cursor ring — CSS-driven states instead of React state */
+  .cursor-ring {
+    transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+  }
+  .cursor-ring.cursor-hovering {
+    width: 3rem;
+    height: 3rem;
+    background: rgba(232, 230, 224, 0.15);
+    border-color: theme("colors.text");
+  }
+  .cursor-ring.cursor-pressed {
+    transform: scale(0.9);
+  }
+
   .grain {
     position: relative;
   }
@@ -84,38 +104,8 @@
     mix-blend-mode: overlay;
   }
 
-  .echo-text {
-    position: relative;
-    display: inline-block;
-    color: theme("colors.text");
-  }
-  .echo-text::before,
-  .echo-text::after {
-    content: attr(data-text);
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    -webkit-text-stroke: 1.2px theme("colors.text");
-    color: transparent;
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 0.5s ease;
-  }
-  .echo-text::before {
-    transform: translate(-0.16em, -0.18em);
-    opacity: 0.25;
-  }
-  .echo-text::after {
-    transform: translate(0.16em, 0.18em);
-    opacity: 0.35;
-  }
-  .echo-text:hover::before {
-    transform: translate(-0.32em, -0.32em);
-    opacity: 0.55;
-  }
-  .echo-text:hover::after {
-    transform: translate(0.32em, 0.32em);
-    opacity: 0.7;
-  }
+
+
 
   .arrow-link {
     @apply inline-flex items-center gap-2 font-display text-base font-medium text-text transition-all duration-300;
@@ -203,6 +193,44 @@
     @apply border-text/40 outline-none;
     box-shadow: 0 0 0 3px rgba(232, 230, 224, 0.08);
   }
+
+  .underline-input {
+    @apply block w-full bg-transparent px-0 py-2 text-base text-text placeholder:text-text-mute outline-none transition-colors;
+    border: 0;
+    border-bottom: 1px solid theme("colors.border");
+  }
+  .underline-input:hover {
+    border-bottom-color: theme("colors.border-soft");
+  }
+  .underline-input:focus {
+    border-bottom-color: theme("colors.text");
+  }
+
+  /* Timeline dot pulse for current position */
+  .timeline-dot-pulse {
+    animation: dot-pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes dot-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(232, 230, 224, 0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(232, 230, 224, 0); }
+  }
+}
+
+.marquee-row {
+  animation: marquee-scroll 40s linear infinite;
+  will-change: transform;
+}
+.marquee-row--reverse {
+  animation: marquee-scroll-rev 50s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-33.3333%, 0, 0); }
+}
+@keyframes marquee-scroll-rev {
+  from { transform: translate3d(-33.3333%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

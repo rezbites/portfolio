@@ -41,7 +41,9 @@ export const experience: Experience[] = [
     period: "Jul 2025",
     bullets: [
       "Built and deployed ML-based backend APIs using Python, Scikit-learn, and Flask/FastAPI with automated preprocessing pipelines.",
+      "Developed real-time prediction endpoints with automated model versioning and A/B rollout support for production traffic.",
+      "Designed data preprocessing pipelines with feature engineering for tabular datasets, achieving measurable accuracy improvements across multiple prediction tasks.",
     ],
-    stack: ["Python", "Scikit-learn", "FastAPI", "Flask"],
+    stack: ["Python", "Scikit-learn", "FastAPI", "Flask", "Pandas", "NumPy"],
   },
 ];

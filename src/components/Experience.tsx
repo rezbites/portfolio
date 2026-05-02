@@ -11,7 +11,17 @@ export default function Experience() {
       title="Where I've built things."
       description="Production AWS, ML pipelines, and the CI/CD that ties them together."
     >
-      <ol className="relative space-y-10 border-l border-border pl-8">
+      <ol className="relative space-y-8 border-l border-border pl-8">
+        {/* Gradient glow on timeline */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 left-[-1px] w-px"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, rgba(232,230,224,0.3) 30%, rgba(232,230,224,0.3) 70%, transparent)",
+          }}
+        />
+
         {experience.map((exp, idx) => (
           <motion.li
             key={exp.company}
@@ -23,11 +33,17 @@ export default function Experience() {
           >
             <span
               className={`absolute -left-[37px] top-2 h-3 w-3 rounded-full ring-4 ring-bg ${
-                exp.current ? "bg-text shadow-soft" : "bg-border"
+                exp.current
+                  ? "bg-text shadow-soft timeline-dot-pulse"
+                  : "bg-border"
               }`}
               aria-hidden
             />
-            <div className="card group">
+            <motion.div
+              className="card group"
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.2 }}
+            >
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-display text-xl font-semibold text-text">
                   {exp.role}{" "}
@@ -37,21 +53,28 @@ export default function Experience() {
               </div>
               <p className="mt-1 font-mono text-xs text-text-mute">{exp.location}</p>
 
-              <ul className="mt-5 space-y-2.5 text-sm text-text-dim">
+              <ul className="mt-4 space-y-2 text-sm text-text-dim">
                 {exp.bullets.map((b, i) => (
-                  <li key={i} className="flex gap-3">
+                  <motion.li
+                    key={i}
+                    className="flex gap-3"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.1 + i * 0.03 }}
+                  >
                     <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-accent" />
                     <span>{b}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 
-              <div className="mt-5 flex flex-wrap gap-1.5">
+              <div className="mt-4 flex flex-wrap gap-1.5">
                 {exp.stack.map((s) => (
                   <TechTag key={s}>{s}</TechTag>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </motion.li>
         ))}
       </ol>

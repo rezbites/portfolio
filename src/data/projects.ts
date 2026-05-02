@@ -6,12 +6,44 @@ export type Project = {
   stack: string[];
   links?: { label: string; href: string }[];
   accent: "ml" | "cloud";
+  featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
+    title: "Blulinked",
+    tagline:
+      "AI-powered social platform shipped on production AWS with sidecar microservices",
+    date: "2026",
+    accent: "cloud",
+    featured: true,
+    bullets: [
+      "Architected a full-stack AI social platform with user profiles, content feeds, and intelligent features — deployed on a production AWS stack orchestrated by a single CloudFormation template.",
+      "Engineered a sidecar container architecture on ECS Fargate co-locating the REST API, an LLM-based interview service, and an NSFW content classifier — cutting inter-service latency by ~60–70%.",
+      "Built a 5-stage CI/CD pipeline with Trivy security scans, parallel Docker builds, and zero-downtime rolling deployments triggered on every push to main.",
+      "Shipped a React + TypeScript frontend and a companion Android app both backed by the same API infrastructure.",
+    ],
+    stack: [
+      "AWS",
+      "ECS Fargate",
+      "CloudFormation",
+      "React",
+      "PostgreSQL",
+      "Docker",
+      "GitHub Actions",
+      "Python",
+    ],
+    links: [
+      {
+        label: "Source",
+        href: "https://github.com/rezbites",
+      },
+    ],
+  },
+  {
     title: "Smart Product Pricing",
-    tagline: "End-to-end multimodal pricing intelligence with a stacking ensemble",
+    tagline:
+      "End-to-end multimodal pricing intelligence with a stacking ensemble",
     date: "Oct 2025",
     accent: "ml",
     bullets: [
@@ -19,7 +51,14 @@ export const projects: Project[] = [
       "Implemented a scalable ML pipeline with EfficientNetB0 and DistilBERT, optimizing GPU memory to resolve OOM issues.",
       "Validated outputs with automated test datasets and repeatable evaluation pipelines for performance consistency.",
     ],
-    stack: ["Python", "TensorFlow", "PyTorch", "LightGBM", "EfficientNetB0", "DistilBERT"],
+    stack: [
+      "Python",
+      "TensorFlow",
+      "PyTorch",
+      "LightGBM",
+      "EfficientNetB0",
+      "DistilBERT",
+    ],
     links: [
       {
         label: "Source",
@@ -29,7 +68,8 @@ export const projects: Project[] = [
   },
   {
     title: "AI-Powered Wealth Assistant",
-    tagline: "Retrieval-Augmented Generation app for personalized financial insights",
+    tagline:
+      "Retrieval-Augmented Generation app for personalized financial insights",
     date: "Aug 2025",
     accent: "ml",
     bullets: [
@@ -40,12 +80,16 @@ export const projects: Project[] = [
     ],
     stack: ["Streamlit", "LangChain", "Gemini API", "FAISS", "Python"],
     links: [
-      { label: "Source", href: "https://github.com/rezbites/ai-powered-wealth-assistant" },
+      {
+        label: "Source",
+        href: "https://github.com/rezbites/ai-powered-wealth-assistant",
+      },
     ],
   },
   {
     title: "Semantic Cache for LLMs",
-    tagline: "Redis-backed semantic caching layer to cut LLM token spend and latency",
+    tagline:
+      "Redis-backed semantic caching layer to cut LLM token spend and latency",
     date: "2025",
     accent: "cloud",
     bullets: [

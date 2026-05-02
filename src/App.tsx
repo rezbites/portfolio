@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import SectionDivider from "./components/SectionDivider";
+import PhilosophyBand from "./components/PhilosophyBand";
+import StatsBand from "./components/StatsBand";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
@@ -9,6 +12,7 @@ import Skills from "./components/Skills";
 import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   useEffect(() => {
@@ -36,11 +40,15 @@ export default function App() {
 
   return (
     <div className="grain relative min-h-screen overflow-hidden bg-bg text-text">
+      <CustomCursor />
       <Nav />
       <main>
         <Hero />
+        <SectionDivider variant="tech" size="lg" />
         <About />
+        <PhilosophyBand />
         <Experience />
+        <StatsBand />
         <Projects />
         <Skills />
         <Achievements />

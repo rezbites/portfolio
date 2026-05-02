@@ -14,7 +14,7 @@ export default function Hero() {
     };
     const handle = w.requestIdleCallback
       ? w.requestIdleCallback(() => setShowCanvas(true))
-      : window.setTimeout(() => setShowCanvas(true), 200);
+      : window.setTimeout(() => setShowCanvas(true), 300);
     return () => {
       if (typeof handle === "number") window.clearTimeout(handle);
     };
@@ -34,45 +34,57 @@ export default function Hero() {
         ) : null}
       </div>
 
-      <div className="container-page flex min-h-screen flex-col items-center justify-center pb-20 pt-32 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+      <div className="container-page flex min-h-screen flex-col items-center justify-center pb-20 pt-28 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display font-semibold uppercase leading-[0.95] tracking-[-0.02em]"
-          style={{ fontSize: "clamp(2rem, 5.6vw, 5rem)" }}
+          transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="block text-text-dim">Hi, I'm</span>
-          <span
-            className="echo-text mt-2 block"
-            data-text="Shashank Choudhary"
+          <h1
+            className="font-display font-bold leading-[1.05] tracking-[-0.02em] text-text"
+            style={{ fontSize: "clamp(2.4rem, 6vw, 5.5rem)" }}
           >
             Shashank Choudhary
-          </span>
-        </motion.h1>
+          </h1>
+
+          <p
+            className="mt-2 font-display italic leading-[1.1] text-text-dim"
+            style={{ fontSize: "clamp(1.2rem, 3vw, 2.4rem)", fontWeight: 400 }}
+          >
+            Building AI that lives beyond the notebook.
+          </p>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="mt-8 max-w-xl text-base text-text-dim md:text-lg"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-8 max-w-md text-sm leading-relaxed text-text-mute md:text-base"
         >
-          I'm an AI/ML engineer & cloud-native developer
+          Software engineer turning research into production systems on AWS.
           <br className="hidden sm:block" />
-          shipping production systems on AWS.
+          AI/ML · Cloud Infrastructure · Shipping code that scales.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.65 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
-          <a href="#projects" className="arrow-link">
-            see my projects
+          <a
+            href="#about"
+            className="inline-flex items-center gap-2 rounded-full border border-text bg-text px-7 py-3 font-sans text-sm font-medium text-bg-deep transition-all duration-200 hover:bg-accent-warm hover:border-accent-warm hover:-translate-y-0.5"
+          >
+            More about me
+            <span aria-hidden className="text-bg-deep/60">↓</span>
           </a>
-          <a href="#about" className="arrow-link">
-            more about me
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3 font-sans text-sm font-medium text-text transition-all duration-200 hover:border-text hover:-translate-y-0.5"
+          >
+            Talk to me
+            <span aria-hidden className="text-text-dim">↗</span>
           </a>
         </motion.div>
       </div>
@@ -81,7 +93,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="pointer-events-none absolute inset-x-0 bottom-8 hidden justify-center md:flex"
+        className="pointer-events-none absolute inset-x-0 bottom-6 hidden justify-center md:flex"
       >
         <div className="flex flex-col items-center gap-2 font-mono text-[10px] uppercase tracking-[0.4em] text-text-mute">
           scroll
