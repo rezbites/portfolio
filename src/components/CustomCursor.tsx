@@ -42,8 +42,8 @@ export default function CustomCursor() {
 
     let raf = 0;
     const tick = () => {
-      ring.current.x += (target.current.x - ring.current.x) * 0.42;
-      ring.current.y += (target.current.y - ring.current.y) * 0.42;
+      ring.current.x += (target.current.x - ring.current.x) * 0.68;
+      ring.current.y += (target.current.y - ring.current.y) * 0.68;
       if (ringRef.current) {
         ringRef.current.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0) translate(-50%, -50%)`;
       }
@@ -75,14 +75,14 @@ export default function CustomCursor() {
       <div
         ref={ringRef}
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[200] h-9 w-9 rounded-full border border-text/80 cursor-ring"
-        style={{ willChange: "transform" }}
+        className="pointer-events-none fixed left-0 top-0 z-[200] h-9 w-9 rounded-full border-2 border-white cursor-ring"
+        style={{ willChange: "transform", mixBlendMode: "difference" }}
       />
       <div
         ref={dotRef}
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[200] h-1.5 w-1.5 rounded-full bg-text"
-        style={{ willChange: "transform" }}
+        className="pointer-events-none fixed left-0 top-0 z-[200] h-2 w-2 rounded-full bg-white"
+        style={{ willChange: "transform", mixBlendMode: "difference" }}
       />
     </>
   );
